@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>view movies</h1>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <td>{{c.name}}</td>
+    </tr>
+    <tr>
+        <th>Year</th>
+        <td>{{c.year}}</td>
+    </tr>
+    <tr>
+        <th>Image</th>
+        <td><img src="{{c.img.url}}" height="200px" width="300px"></td>
+    </tr>
+    <tr>
+        <th>Desc</th>
+        <td>{{c.desc}}</td>
+    </tr>
+</table>
+
+<a href="{% url 'mov:update' c.name %}" class="btn btn-secondary text-dark">Update</a>
+<a href="{% url 'mov:delete' c.name%}" class="btn btn-secondary text-dark">Delete</a>
+
+{% endblock %}
